@@ -1,48 +1,64 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<x-auth-layout>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <!-- title-->
+    <h4 class="mt-0">{{ __('Reset Password') }}</h4>
 
-        <form method="POST" action="{{ route('password.update') }}">
-            @csrf
+    <!-- Validation Errors -->
+    <x-auth-validation-errors class="mb-4 text-danger" :errors="$errors"/>
 
-            <!-- Password Reset Token -->
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+    <!-- form -->
+    <form id="resetForm" method="POST" action="{{ route('password.update') }}">
+    @csrf
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+    <!-- Password Reset Token -->
+        <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+        <!-- Email Address -->
+        <div class="form-group">
+            <label for="email">{{ __('Email address') }}</label>
+            <input class="form-control" type="email" id="email" name="email" value="{{old('email', $request->email)}}"
+                   required placeholder="{{ __('Enter your email') }}">
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">{{ __('New Password') }}</label>
+            <div class="input-group input-group-merge">
+                <input type="password" id="password" name="password" class="form-control"
+                       placeholder="{{ __('Enter your new password') }}">
+                <div class="input-group-append" data-password="false">
+                    <div class="input-group-text">
+                        <span class="password-eye font-12"></span>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
+        <!-- Confirm Password -->
+        <div class="form-group">
+            <label for="password_confirmation">{{ __('New Password Confirmation') }}</label>
+            <div class="input-group input-group-merge">
+                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control"
+                       placeholder="{{ __('Confirm your new password') }}">
+                <div class="input-group-append" data-password="false">
+                    <div class="input-group-text">
+                        <span class="password-eye font-12"></span>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+        <div class="form-group mb-0 text-center">
+            <button form="resetForm" class="btn btn-primary waves-effect waves-light btn-block"
+                    type="submit"> {{ __('Reset Password') }} </button>
+        </div>
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
-            </div>
+    </form>
+    <!-- end form-->
 
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Reset Password') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+    <!-- Footer-->
+    <footer class="footer footer-alt">
+        <p class="text-muted">{{ __('Do not share this link with anyone!') }} </p>
+    </footer>
+
+</x-auth-layout>

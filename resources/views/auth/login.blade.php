@@ -1,56 +1,66 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<x-auth-layout>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+    <!-- title-->
+    <h4 class="mt-0">{{ __('Sign In') }}</h4>
+    <p class="text-muted mb-4">{{ __('Enter your email address and password to access account') }}.</p>
+    <!-- End title-->
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+    <x-auth-validation-errors class="mb-4 text-danger" :errors="$errors"/>
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+    <!-- form -->
+    <form id="loginForm" method="POST" action="/login">
+    @csrf
+
+    <!-- Email Address -->
+        <div class="form-group">
+            <label for="email">{{ __('Email address') }}</label>
+            <input class="form-control" type="email" id="email" name="email" required="" placeholder="{{ __('Enter your email') }}"
+                   value="{{old('email')}}">
+        </div>
+        <!-- End  Email Address -->
+
+        <!-- Password -->
+        <div class="form-group">
+            <a href="{{route('password.request')}}" class="text-muted float-right"><small>{{ __('Forgot your
+                password?') }}</small></a>
+            <label for="password">{{ __('Password') }}</label>
+            <div class="input-group input-group-merge">
+                <input type="password" id="password" name="password" class="form-control"
+                       placeholder="{{ __('Enter your password') }}">
+                <div class="input-group-append" data-password="false">
+                    <div class="input-group-text">
+                        <span class="password-eye font-12"></span>
+                    </div>
+                </div>
             </div>
+        </div>
+        <!-- End Password -->
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+        <!-- Remember Me -->
+        <div class="form-group mb-3">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="checkbox-signin">
+                <label class="custom-control-label" for="checkbox-signin">{{ __('Remember me') }}</label>
             </div>
+        </div>
+        <!-- End Remember Me -->
 
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
+        <!-- Submit Button -->
+        <div class="form-group mb-0 text-center">
+            <button form="loginForm" class="btn btn-primary btn-block" type="submit">{{ __('Log In') }}</button>
+        </div>
+        <!-- End Submit Button -->
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+    </form>
+    <!-- End form-->
 
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+    <!-- Footer-->
+    <footer class="footer footer-alt">
+        <p class="text-muted">{{ __("Don't have an account?") }} <a href="{{route('register')}}" class="text-muted ml-1"><b>{{ __('Sign
+            Up') }}</b></a></p>
+    </footer>
+
+
+</x-auth-layout>

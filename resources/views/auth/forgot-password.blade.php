@@ -1,36 +1,48 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<x-auth-layout>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+    <!-- title-->
+    <h4 class="mt-0">{{ __('Recover Password') }}</h4>
+    <p class="text-muted mb-4">{{ __("Enter your email address and we'll send you an email with instructions to reset your password") }}
+        .</p>
+    <!-- End title-->
+
+
+    <!-- Session Status -->
+    <x-auth-session-status class="mb-4 text-danger" :status="session('status')"/>
+
+
+    <!-- Validation Errors -->
+    <x-auth-validation-errors class="mb-4 text-danger" :errors="$errors"/>
+
+
+    <!-- form -->
+    <form method="POST" action="{{ route('password.email') }}">
+    @csrf
+
+    <!-- Email Address -->
+        <div class="form-group mb-3">
+            <label for="email">{{ __('Email address') }}</label>
+            <input class="form-control" type="email" id="email" name="email" required=""
+                   placeholder="{{ __('Enter your email') }}" value="{{old('email')}}">
         </div>
+        <!-- End  Email Address -->
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+        <!-- Submit Button -->
+        <div class="form-group mb-0 text-center">
+            <button class="btn btn-primary waves-effect waves-light btn-block" type="submit"> {{ __('Reset
+                Password') }}
+            </button>
+        </div>
+        <!-- End Submit Button -->
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    </form>
+    <!-- End form-->
 
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+    <!-- Footer-->
+    <footer class="footer footer-alt">
+        <p class="text-muted">{{ __('Back to') }} <a href="{{route('login')}}" class="text-muted ml-1"><b>{{ __('Log in') }}</b></a>
+        </p>
+    </footer>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+</x-auth-layout>
