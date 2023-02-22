@@ -1,0 +1,66 @@
+function
+
+
+function name($argument) {}
+
+
+function name($argument):returned_type {}
+
+
+
+function foo($a=5,string $b) {}			#Named Arguments , normal way called positional arguments
+foo(string:'name');
+
+
+
+#called Variable functions
+$var = "foo";
+$var(); 	#will call foo function if exist otherwise error;
+
+
+
+unction sum(...$numbers) {		#Variable-length argument lists	
+ 
+}
+
+function add($a, $b) {
+}
+add(...[1, 2]); # $a=1 $b=2
+
+
+
+function total_intervals($unit, INT ...$intervals) {
+}
+echo total_intervals('d', 1, 4);
+echo total_intervals('d', 1, 'y');   #error
+
+
+
+
+//call anonymous function
+(function(){ .... })();
+
+$f = function(){ ...  };
+$f();
+
+//access external variable
+function() use($var1, $var2) { ... };
+
+
+call_user_func() 
+
+
+=====================================================================================
+is_array()
+isset() 
+empty() 
+strlen() 
+is_countable() 
+time()
+gettype()
+is_array()
+is_float()
+is_int()
+is_object()
+is_string()
+str_contains($text, $value)

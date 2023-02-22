@@ -1,0 +1,49 @@
+- yellow and red parts and fields
+
+- target date ? 
+
+- action timeLine
+
+- risk in action vs risk in accident
+
+- note 5 in inccident (to be appeared to HSE,  not mandatory for initiator) mandatory !! can initiator fill it ? 
+
+- add consequence proccess, consequences will only be addede by hse then it will be filled by responsable perosn, right ? 
+
+- assign name and department automatic, so specific location will corspond to specifi porson or department, right? 
+
+  it should be dropdown of employees ?
+
+- not 9 in invesigation, how should the process work
+
+- not 6 in invesigation, process not clear 
+
+- note 3 in walk through audit, each type will have its own checklist ?  in the demo checklist doesn't change.
+
+- note 15 in walk through audit, (action item source to be automatically picked as PTX inspection) !!
+
+- two attachment box in walk through audit, one for checklist ? 
+
+
+- master data
+
+------------------------------------------------------------------------------------------------------------------------------------
+can an accident have more than one action ? investigation ? root cause ? 
+
+what is the finding form and the perpose of it ? 
+
+through-audit --> finding,   note 3 in walk 
+
+through-audit --> finding,   as the rest of finding should there be responsible ...etc
+
+kinda of reapted list in finding(position of people)
+
+why do walk through audit have 2 reported by?
+
+as my understanding it looks like msi should also as walkThroughAudit && PTW have a Inspection CheckList ? 
+
+
+ 
+
+	
+

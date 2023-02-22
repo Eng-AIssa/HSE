@@ -1,0 +1,44 @@
+15/7  &  16/7
+----------------------------------------------------------------------------
+edit all url's (reset Password Page Fixed )
+sat all templat and froms for translation and added arabic choice for flag
+clean Code and add detaild comments
+rearrange components to folders
+made auth layout
+made profile page
+added stack
+
+
+17/7 SuterDay(Off)
+---------------------------------------------------------
+X-Mind mapping
+Omran Meating
+
+
+18/7 sunday
+---------------------------------------------------------
+re-arrange fronend Follow up section to use with database and beckend
+add logout page
+translate profile page and add asset to links
+add comments to profile page
+
+22/7 thursday
+---------------------------------------------------------
+build and connect profile Backend through Contorller
+build and connect profile Backend with livewire 2 seprate classes(information & password)
+enable profile pop up's notofiaction
+
+
+23/7
+---------------------------------------------------------
+transformed all base forms/tables into sql readble types then:
+build base tables and thier relations
+
+
+
+
+Alawi questions:
+------------------------------------------------------------------------------------
+use the same table for the section with smmiler fields and add table_type/table_name column(nearmiss & accident  |  wta & ptw)
+nameing convention in DB tables  ex/ptw_inspection
+some custom temaplate css and js work only once 
